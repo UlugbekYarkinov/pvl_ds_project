@@ -1,25 +1,25 @@
 services:
-  frontendflutter:
-    container_name: frontendflutter
-    build: 
-      context: ../client_side_flutter
-      dockerfile: Dockerfile
-    image: frontendflutter
-    networks:
-      - shopnet
-    ports:
-      - "8081:8081"
-    environment:
-      SPRING_BOOT_API_URL: http://backendspringboot:8080/api/shoppingItems
-    depends_on:
-      - backendspringboot
+  # frontendflutter:
+  #   container_name: frontendflutter
+  #   build: 
+  #     context: ../client_side_flutter
+  #     dockerfile: Dockerfile
+  #   image: frontendflutter
+  #   networks:
+  #     - shopnet
+  #   ports:
+  #     - "8081:8081"
+  #   environment:
+  #     SPRING_BOOT_API_URL: http://backendspringboot:8080/api/shoppingItems
+  #   depends_on:
+  #     - backendspringboot
 
   frontendflask:
     container_name: frontendflask
     build: 
       context: ../client_side_python/python_flask
       dockerfile: Dockerfile
-    image: frontendflask
+    image: yaulugbek/frontendflask
     networks:
       - shopnet
     ports:
@@ -34,7 +34,7 @@ services:
     build: 
       context: ../client_side_python/python_fastapi
       dockerfile: Dockerfile
-    image: frontendfastapi
+    image: yaulugbek/frontendfastapi
     networks:
       - shopnet
     ports:
@@ -49,7 +49,7 @@ services:
     build: 
       context: ../server_side_springboot/christmas_wish_list
       dockerfile: Dockerfile
-    image: backendspringboot
+    image: yaulugbek/backendspringboot
     networks:
       - shopnet
     ports:
